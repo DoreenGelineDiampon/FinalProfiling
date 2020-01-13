@@ -8,14 +8,15 @@ public class Profiling {
     
     public static void main(String[] args) {
                 Scanner sc = new Scanner(System.in);
-        int profilesCount=0;
-        String[] names = new String[50];
-        String[] email = new String[50];
-        String[] password = new String[50];
+       int profiles= 0;
+       
+        String[] names = new String[100];
+        String[] email = new String[100];
+        String[] password = new String[100];
         String[] civilStatus={"Single", "Married", "Divorced", "Widow"}; 
-        int[] age = new int[50];
-        int limit=50;
-        int prfslot=50;
+        int[] age = new int[100];
+        int limit=100;
+        int prfslot=100;
 
         System.out.println("What do you want to do?");
         boolean profiling= true;
@@ -28,7 +29,7 @@ public class Profiling {
             System.out.println("3. Show all Profiles");
         
         int select= sc.nextInt();
-
+        
             switch (select) {
                 case 1:
                     System.out.println("There are "+prfslot+" empty profiles remaining.\n");
@@ -52,7 +53,7 @@ public class Profiling {
                     System.out.print("Single ");
                     System.out.print("Married ");
                     System.out.print("Divorced ");
-                    System.out.println("Widow ");
+                    System.out.println("Widowed ");
                     civilStatus[names.length-limit]=sc.nextLine();
                     if(civilStatus[names.length-limit].equalsIgnoreCase("Single")){
                         System.out.println(civilStatus[0]);
@@ -60,46 +61,58 @@ public class Profiling {
                         System.out.println(civilStatus[1] );
                     }else if(civilStatus[names.length-limit].equalsIgnoreCase("Divorced")){
                         System.out.println(civilStatus[2]);
-                    }else if (civilStatus[names.length-limit].equalsIgnoreCase("Widow")){
+                    }else if (civilStatus[names.length-limit].equalsIgnoreCase("Widowed")){
                         System.out.println(civilStatus[3] );
                     }else {
                         System.err.println("Invalid Input");
                         System.exit(0);
-                    }       profilesCount++;
+                    }       profiles++;
                     limit--;
                     prfslot--;
                     break;
+                  
+               
+    
                 case 2:
                     System.out.println("-------------------");
-                    System.out.println("There are "+profilesCount+" select from 0 to "+(profilesCount-1)+".");
-                    int search= sc.nextInt();
-                    System.out.println("Name: " + names[search]);
-                    System.out.println("Email: " + email[search]);
-                    System.out.println("Password: " + password[search]);
-                    System.out.println("Age: " + age[search]);
-                    System.out.println("Civil Status:  "+ civilStatus[search]);
-                    break;
-                case 3:
-                    for (int j = 0; j < names.length-limit; j++) {
-                        
-                        System.out.println("Profile No. "+j+"\n");
-                        
-                        System.out.println("Name: "+names[j]);
-                        System.out.println("Email: " + email[j]);
-                        System.out.println("Password: " + password[j]);
-                        System.out.println("Age: " + age[j]);
-                        System.out.println("Civil Status: "+ civilStatus[j]);
-                        System.out.println("\n");
-                    }       break;
-                case 4:
-                  
-                default:
-                    System.err.println("Invalid Input");
-                    break;
+                    System.out.println("There are "+profiles+" names ");
+                    sc.nextLine();
+                    String namessearch = sc.nextLine();
+                    for (int i = 0; i < names.length; i++) {
+
+                        if (namessearch.equals(names[i])) {
+                            while (namessearch.equals(names[i])) {
+                                System.out.println("-----------------------------");
+                                System.out.println("Name: " + names[i]);
+                                System.out.println("Email: " + email[i]);
+                                System.out.println("Password: " + password[i]);
+                                System.out.println("Age: " + age[i]);
+                                System.out.println("-----------------------------");
+                                break;
+                                
+                            }}}
+                                
+           
+                   case 3:
+       
+                   for (int j = 0; j < names.length-limit; j++) {
+                
+                System.out.println("Profile No. "+j+"\n");
+                
+                System.out.println("Name: "+names[j]);
+                System.out.println("Email: " + email[j]);
+                System.out.println("Password: " + password[j]);
+                System.out.println("Age: " + age[j]);
+                System.out.println("\n");
+                break;
+                    }      
+                
+                }
             }
-          
+        }
+           
     }
-    }
-}
+    
     
 
+    
